@@ -1,0 +1,376 @@
+ \documentclass[xcolor=dvipsnames,table]{beamer}
+%o
+%e
+
+\usepackage{latexsym}
+\usepackage [ansinew]{inputenc}
+\usepackage[brazil]{babel}
+\usepackage{amssymb} %Este e o AMS paquete
+\usepackage{amsmath}
+\usepackage{stmaryrd}
+\usepackage{fancybox}
+\usepackage{datetime}
+
+\usepackage[T1]{fontenc}
+
+%\usepackage{beamerthemesplit}
+\usepackage{graphicx}
+\usepackage{graphics}
+\usepackage{url}
+\usepackage{algorithmic}
+\usepackage{algorithm}
+\usepackage{acronym}
+\usepackage{array}
+
+\newtheorem{definicao}{Definio}
+\newcommand{\tab}{\hspace*{2em}}
+
+\mode<presentation>
+{
+  %\definecolor{colortexto}{RGB}{153,100,0}
+  \definecolor{colortexto}{RGB}{0,0,0}
+  
+% \setbeamersize{sidebar width left=0.5cm}
+  \setbeamertemplate{background canvas}[vertical shading][ bottom=white!10,top=white!10]
+%   \setbeamercolor{title}{fg=colortitulo!80!black,bg=blue!20!white}
+%   \setbeamercolor{title}{bg=colortitulo!20!black}
+%   \setbeamercolor{background canvas}{bg=colortitulo}
+%   \setbeamercolor{frametitle}{fg=red}
+
+  \setbeamercolor{normal text}{fg=colortexto} 
+
+  \usetheme{Warsaw}
+  %\logo{\includegraphics[width=2cm]{Images/ratonfuerte.jpg}}
+
+
+%   \usefonttheme[onlysmall]{structurebold}
+%   \usecolortheme{seahorse}
+%  \usecolortheme[named={YellowOrange}]{structure}
+%   \usecolortheme[named={Blue}]{structure}
+%   \usecolortheme{crane}
+%   \useoutertheme{default}
+}
+
+\title{Apresentação da disciplina} 
+
+\author{
+  Esdras Lins Bispo Jr. \\ \url{bispojr@ufg.br}
+  } 
+ \institute{
+  Teoria da Computação \\Bacharelado em Ciência da Computação}
+\date{\textbf{10 de março de 2014} }
+
+\logo{\includegraphics[width=1cm]{images/ufgJataiLogo.png}}
+
+\begin{document}
+
+	\begin{frame}
+		\titlepage
+	\end{frame}
+
+	\AtBeginSection{
+		\begin{frame}{Sumário}%[allowframebreaks]{Sumário}
+    		\tableofcontents[currentsection]
+    		%\tableofcontents[currentsection, hideothersubsections]
+		\end{frame}
+	}
+
+	\begin{frame}{Plano de Aula}
+		\tableofcontents
+		%\tableofcontents[hideallsubsections]
+	\end{frame}
+	
+	\section{Sobre a Disciplina}
+	\subsection{Professor}
+	\begin{frame}{Professor}
+		\begin{columns}
+			\column{.4\textwidth}  		
+		  		\begin{center}
+		    		\includegraphics[height=.5\textheight]{images/esdras.png}
+		  		\end{center}
+			\column{.6 \textwidth}  		
+				\begin{block}{Formação}
+					\begin{center}
+						{\normalsize {\bf Bacharel} em Sistemas de Informação\\
+						{\bf Mestre} e {\bf Doutorando} em Representação Conhecimento (IA)}
+					\end{center}
+				\end{block}		  		
+		  		\begin{block}{Quem?}
+		  			\begin{center}
+						{\bf Esdras Lins Bispo Junior} \\ Recife, Pernambuco.
+					\end{center}
+				\end{block}
+		\end{columns}
+	\end{frame}
+	
+	\subsection{Informações Importantes}
+	\begin{frame}{Informações Importantes}
+		\begin{block}{Professor}
+			\begin{itemize}
+				\item Esdras Lins Bispo Jr.
+				\item \url{bispojr@ufg.com}
+				\item Sala 17B (Bloco dos Professores)
+			\end{itemize}
+		\end{block}
+	\end{frame}	
+	
+	\begin{frame}{Informações Importantes}
+		\begin{block}{Disciplina}
+			\begin{itemize}
+				\item Teoria da Computação
+				\item 09h30-11h10 (Segunda, LEC I)\\
+					  17h20-19h00 (Quarta, LEC III)
+				\item Dúvidas: 15h30 - 17h10 (Quarta)\\
+					  {\color{red}[necessário confirmação comigo]}
+				\item \url{teocomp.bispojr.com} (AVA Canvas)
+			\end{itemize}
+		\end{block}
+	\end{frame}
+	
+	\begin{frame}{Informações Importantes}
+		\begin{block}{Metodologia}
+			\begin{itemize}
+				\item Aulas expositivas;
+				\item Prova;
+				\item Testes;
+				\item Exercícios.
+			\end{itemize}
+		\end{block}
+	\end{frame}
+	
+	\begin{frame}{Informações Importantes}
+		\begin{block}{Testes}
+			\begin{itemize}
+				\item Primeiro teste equivale a 20\% da pontuação total;
+				\item Segundo teste equivale a 20\% da pontuação total;
+				\item Terceiro teste equivale a 20\% da pontuação total;
+				\item Quarto teste equivale a 20\% da pontuação total.
+			\end{itemize}
+		\end{block}
+		\begin{block}{Avaliação}
+			\begin{itemize}
+				\item Prova equivale a 20\% da pontuação total.
+			\end{itemize}
+		\end{block}
+		\begin{block}{Exercícios [Bônus]}
+			\begin{itemize}
+				\item Somatório de todos os exercícios equivale a \\10\% da pontuação total.
+			\end{itemize}
+		\end{block}
+	\end{frame}
+	
+	\begin{frame}{Informações Importantes}
+		\begin{block}{Avaliação}
+			O cálculo da média final será dada da seguinte forma:
+			\begin{itemize}
+				\item MF = MIN(10, PONT)
+			\end{itemize}
+			em que MIN representa o mínimo entre dois valores e PONT representa a pontuação total obtida em toda a disciplina.
+		\end{block}
+	\end{frame}
+	
+	\begin{frame}{Informações Importantes}
+		\begin{block}{Reposições de Aula}
+			{\bf Dia:} Quarta-feira (15h30-17h10)
+		\end{block}
+		\begin{block}{Datas}
+			\begin{enumerate}
+				\item 19 de março;
+				\item 02 de abril;
+				\item 23 de abril;
+				\item 19 de maio;
+				\item 24 de maio;
+				\item 11 de junho.
+			\end{enumerate}
+		\end{block}
+	\end{frame}
+	
+	\begin{frame}{Informações Importantes}
+		\begin{alertblock}{Não haverá aula}
+			\begin{enumerate}
+				\item 24 de março;
+				\item 16 de abril;
+				\item 21 de abril;
+				\item 30 de abril;
+				\item 05 de maio;
+				\item 07 de maio;
+				\item 23 de junho.
+			\end{enumerate}
+		\end{alertblock} \pause
+		\begin{exampleblock}{Previsão de Término das Atividades}
+			30 de junho.
+		\end{exampleblock}
+	\end{frame}
+	
+	\begin{frame}{Informações Importantes}
+		\begin{block}{Conteúdo do Curso}
+			\begin{enumerate}
+				\item Introdução à Teoria da Computação;
+				\item Modelos de Computação;
+				\item Problemas decidíveis;
+				\item Problemas indecidíveis;
+				\item Complexidade de tempo;
+				\item NP-Completude;
+				\item Tópicos Avançados.
+			\end{enumerate}
+		\end{block}
+	\end{frame}
+
+%------------------------------------------
+	\section{Pensamento}
+	\begin{frame}{Pensamento}
+  		\begin{center}
+    		\includegraphics[width=7cm]{images/pensamento.png}
+  		\end{center}
+	\end{frame}
+	
+	\begin{frame}{Pensamento}
+		\begin{columns}
+			\column{.4\textwidth}  		
+		  		\begin{center}
+		    		\includegraphics[height=.5\textheight]{images/wittgenstein.jpg}
+		  		\end{center}
+			\column{.6\textwidth}  		
+				\begin{block}{Frase}
+					\begin{center}
+						{\large Os limites do meu conhecimento são os limites do meu mundo.}
+					\end{center}
+				\end{block}		  		
+		  		\begin{block}{Quem?}
+		  			\begin{center}
+						{\bf Ludwig Wittgenstein (1889-1951)} \\ Filósofo austríaco.
+					\end{center}
+				\end{block}
+		\end{columns}
+	\end{frame}
+%------------------------------------------
+	\section{Conceitos Básicos}
+	\subsection{O que é Teoria da Computação?}
+	\begin{frame}{O que é Teoria da Computação?}
+		Pode ser dividida em três grandes áreas:
+		\begin{itemize}
+			\item Teoria dos Autômatos;
+			\item Teoria da Computabilidade;
+			\item Teoria da Complexidade.	
+		\end{itemize}\pause
+		São interligadas pela pergunta:
+		\begin{block}{}
+			Quais são as capacidades e limitações fundamentais dos computadores?
+		\end{block}
+	\end{frame}
+	
+	\begin{frame}{O que é Teoria da Computação?}
+		\begin{block}{Teoria dos Autômatos}
+			Quais são as definições e propriedades dos modelos matemáticos de computação?
+		\end{block} \pause
+		\begin{block}{Teoria da Computabilidade}
+			O que faz alguns problemas serem solúveis e outros não?		
+		\end{block} \pause
+		\begin{block}{Teoria da Complexidade}
+			O que faz alguns problemas serem computacionalmente difíceis e outros fáceis?
+		\end{block}
+	\end{frame}
+	
+	\subsection{Revisão}
+	\begin{frame}{Conceitos Básicos} 
+		\begin{block}{Conjuntos}
+			\begin{itemize}
+				\item Definição;
+				\item Pertinência;
+				\item Continência;
+				\item Conjuntos infinitos;
+				\item Operações entre conjuntos;
+				\item Conjunto das partes;
+				\item Diagramas de Venn.
+			\end{itemize}
+		\end{block}
+	\end{frame}
+	
+	\begin{frame}{Conceitos Básicos} 
+		\begin{block}{Sequência}
+			\begin{itemize}
+				\item Definição;
+				\item Representação;
+				\item $k$-upla;
+				\item Produto cartesiano.
+			\end{itemize}
+		\end{block}
+	\end{frame}
+	
+	\begin{frame}{Conceitos Básicos} 
+		\begin{block}{Funções e Relações}
+			\begin{itemize}
+				\item Definição;
+				\item Domínio;
+				\item Contradomínio;
+				\item Imagem;
+				\item Aridade;
+				\item Predicado;
+				\item Propriedades de relações.
+			\end{itemize}
+		\end{block}
+	\end{frame}
+	
+	\begin{frame}{Conceitos Básicos} 
+		\begin{block}{Grafos}
+			\begin{itemize}
+				\item Definição;
+				\item Nó (ou Vértice);
+				\item Aresta;
+				\item Representação;
+				\item Grau de um nó;
+				\item Grafo rotulado;
+				\item Subgrafo;
+				\item Caminhos, Circuitos e Árvores;
+				\item Grafo direcionado.
+			\end{itemize}
+		\end{block}
+	\end{frame}
+	
+	\begin{frame}{Conceitos Básicos} 
+		\begin{block}{Cadeia e Linguagens}
+			\begin{itemize}
+				\item Alfabeto;
+				\item Símbolos;
+				\item Cadeia;
+				\item Comprimento de uma cadeia;
+				\item Cadeia vazia;
+				\item Reverso de uma cadeia;
+				\item Subcadeia;
+				\item Concatenação;
+				\item Ordenação lexicográfica;
+				\item Linguagem.
+			\end{itemize}
+		\end{block}
+	\end{frame}
+	
+	\begin{frame}{Conceitos Básicos} 
+		\begin{block}{Lógica Booleana}
+			\begin{itemize}
+				\item Proposição;
+				\item Conectivos;
+				\item Cadeia;
+				\item Fórmulas complexas;
+				\item Equivalências notáveis.
+			\end{itemize}
+		\end{block}
+	\end{frame}
+	
+	\begin{frame}{Lista de Exercícios 01}
+		\begin{block}{Livro}
+			SIPSER, M. {\bf Introdução à Teoria da Computação}, 2a Edição, Editora Thomson Learning, 2011. \color{blue}{\bf Código Bib.: [004 SIP/int]}.
+		\end{block}		 
+		\begin{block}{Exercícios}
+			\begin{itemize}
+				\item 0.10;
+				\item 0.11;
+				\item 0.12.
+			\end{itemize}
+		\end{block}
+	\end{frame}
+	
+	\begin{frame}
+		\titlepage
+	\end{frame}
+	
+\end{document}

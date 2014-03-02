@@ -1,0 +1,9 @@
+2014.1/aulas/**/*.aux
+2014.1/aulas/**/*.log
+2014.1/aulas/**/*.nav
+2014.1/aulas/**/*.out
+2014.1/aulas/**/*.snm
+2014.1/aulas/**/*.synctex.gz
+2014.1/aulas/**/*.toc
+*/privado/
+toDolist.txt
