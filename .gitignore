@@ -5,5 +5,13 @@
 2014.1/aulas/**/*.snm
 2014.1/aulas/**/*.synctex.gz
 2014.1/aulas/**/*.toc
+2014.1/dicionario/**/*.aux
+2014.1/dicionario/**/*.log
+2014.1/dicionario/**/*.nav
+2014.1/dicionario/**/*.out
+2014.1/dicionario/**/*.snm
+2014.1/dicionario/**/*.synctex.gz
+2014.1/dicionario/**/*.toc
+*.db
 */privado/
 toDolist.txt
