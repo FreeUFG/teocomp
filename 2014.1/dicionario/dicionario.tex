@@ -84,7 +84,7 @@ Como é possível construir $M$, então $A \cup B$ é regular. Logo, a classe de
 	\end{tabular}
 \end{flushleft}
 
-{\bf Prova:} Seja $N = (Q, \Sigma, \delta, q_0, F)$ o AFN que reconhece alguma linguagem $A$. Construiremos o AFD $M = (Q', \Sigma, \delta', q_0', F' )$ que reconhece $A$. Consideraremos, provisoriamente, o caso em que $N$ não tem setas $\epsilon$. Retornaremos a este caso mais adiante. $M$ é pode ser construído como se segue:
+{\bf Prova:} Seja $N = (Q, \Sigma, \delta, q_0, F)$ o AFN que reconhece alguma linguagem $A$. Construiremos o AFD $M = (Q', \Sigma, \delta', q_0', F' )$ que reconhece $A$. Consideraremos, provisoriamente, o caso em que $N$ não tem setas $\epsilon$. Retornaremos a este caso mais adiante. $M$ pode ser construído como se segue:
 
 	\begin{enumerate}
 		\item $Q' = \mathcal{P}(A)$;
@@ -97,7 +97,11 @@ Como é possível construir $M$, então $A \cup B$ é regular. Logo, a classe de
 		\item $F' = \{ R \in Q' \mbox{ | } R$ contém um estado de aceitação de $N \}$.
 	\end{enumerate}
 
-Consideraremos agora o caso envolvendo as setas $\epsilon$. Seja $E(R) = \{q \mbox{ | } q$ pode ser atingido a partir de $R$ viajando-se ao longo de 0 ou mais setas $\epsilon \}$. Basta substituir na função de transição os termos $\delta(r,a)$ por $E(\delta(r,a))$. Temos
+Consideraremos agora o caso envolvendo as setas $\epsilon$. Para qualquer estado $R$ de $M$, definimos $E(R)$ como a coleção de estados que podem ser atingidos a partir de $R$ indo somente ao longo de suas setas $\epsilon$, incluindo os próprios membros de $R$. Formalmente, para $R \subseteq Q$ seja
+	\begin{center}
+		$E(R) = \{q \mbox{ | } q$ pode ser atingido a partir de $R$ viajando-se ao longo de 0 ou mais setas $\epsilon \}$	
+	\end{center}	
+	Basta substituir na função de transição os termos $\delta(r,a)$ por $E(\delta(r,a))$. Temos
 			\begin{center}
 				$\delta'(R,a) = \bigcup\limits_{r \in R} E(\delta (r,a))$
 			\end{center}
