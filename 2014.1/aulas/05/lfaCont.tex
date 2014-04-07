@@ -1,0 +1,175 @@
+\documentclass[xcolor=dvipsnames,table]{beamer}
+
+\usepackage{latexsym}
+\usepackage [ansinew]{inputenc}
+\usepackage[brazil]{babel}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{stmaryrd}
+\usepackage{fancybox}
+\usepackage{datetime}
+
+\usepackage[T1]{fontenc}
+
+\usepackage{graphicx}
+\usepackage{graphics}
+\usepackage{url}
+\usepackage{algorithmic}
+\usepackage{algorithm}
+\usepackage{acronym}
+\usepackage{array}
+
+\newtheorem{definicao}{Definio}
+\newcommand{\tab}{\hspace*{2em}}
+
+\mode<presentation>
+{
+  \definecolor{colortexto}{RGB}{0,0,0}
+  \setbeamertemplate{background canvas}[vertical shading][ bottom=white!10,top=white!10]
+  \setbeamercolor{normal text}{fg=colortexto} 
+  \usetheme{Warsaw}
+}
+
+\title{Revisão e Demonstrações de LFA} 
+
+\author{
+  Esdras Lins Bispo Jr. \\ \url{bispojr@ufg.br}
+  } 
+ \institute{
+  Teoria da Computação \\Bacharelado em Ciência da Computação}
+\date{\textbf{19 de março de 2014} }
+
+\logo{\includegraphics[width=1cm]{images/ufgJataiLogo.png}}
+
+\begin{document}
+
+	\begin{frame}
+		\titlepage
+	\end{frame}
+
+	\AtBeginSection{
+		\begin{frame}{Sumário}%[allowframebreaks]{Sumário}
+    		\tableofcontents[currentsection]
+    		%\tableofcontents[currentsection, hideothersubsections]
+		\end{frame}
+	}
+
+	\begin{frame}{Plano de Aula}
+		\tableofcontents
+		%\tableofcontents[hideallsubsections]
+	\end{frame}
+	
+%------------------------------------------
+	\section{Pensamento}
+	\begin{frame}{Pensamento}
+  		\begin{center}
+    		\includegraphics[width=7cm]{images/pensamento.png}
+  		\end{center}
+	\end{frame}
+	
+	\begin{frame}{Pensamento}
+		\begin{columns}
+			\column{.4\textwidth}  		
+		  		\begin{center}
+		    		\includegraphics[height=.5\textheight]{images/desconhecido.jpg}
+		  		\end{center}
+			\column{.6\textwidth}  		
+				\begin{block}{Frase}
+					\begin{center}
+						{\large O computador veio para resolver os problemas que nós ainda não tínhamos.}
+					\end{center}
+				\end{block}		  		
+		  		\begin{block}{Quem?}
+		  			\begin{center}
+						{\bf Desconhecido} \\ ***.
+					\end{center}
+				\end{block}
+		\end{columns}
+	\end{frame}
+%------------------------------------------
+	\section{Revisão}
+	\begin{frame}{Computação e Linguagem Regular}
+		\begin{block}{Computação}
+			Seja $M$ um autômato finito e $w = w_1 w_2 \ldots w_n$ seja uma cadeia em que $w_i$ é um membro do alfabeto $\Sigma$. Então $M$ {\bf aceita} $w$ se existe uma sequência de estados $r_0, r_1, \ldots, r_n$ em $Q$ com três condições:
+			\begin{enumerate}
+				\item $r_0 = q_0$
+				\item $\delta(r_i, w_{i+1}) = r_{i+1}$, para $i=0, 1, \ldots, n-1$, e
+				\item $r_n \in F$.
+			\end{enumerate}
+		\end{block}				
+		\begin{block}{Linguagem Regular (Definição 1.16)}
+			Uma linguagem é chamada de uma {\bf linguagem regular} se algum autômato finito a reconhece.
+		\end{block}
+	\end{frame}
+	
+	\begin{frame}{Operações Regulares}
+		Sejam $A$ e $B$ linguagens. Definimos as operações regulares {\bf união}, {\bf concatenação} e {\bf estrela} da seguinte forma:
+		\begin{itemize}
+			\item {\bf União}: $A \cup B = \{ x \mbox{ | } x \in A \mbox{ ou } x \in B \}$.
+			\item {\bf Concatenação}: $A \circ B = \{ xy \mbox{ | } x \in A \mbox{ e } y \in B \}$.
+			\item {\bf Estrela}: $A^* = \{ x_1 x_2 \ldots x_k \mbox{ | } k \geq 0 \mbox{ e } x_i \in A \}$.
+		\end{itemize} 
+		\begin{block}{Teorema 1.25}
+			A classe de linguagens regulares é {\bf fechada} sob a operação de união.
+		\end{block}
+	\end{frame}
+	
+	\section{LFA}
+	\subsection{Autômato Finito Não-Determinístico}
+	\begin{frame}{Autômato Finito Não-Determinístico}
+		Um {\bf autômato finito não-determinístico} (AFN) é uma 5-upla $(Q, \Sigma, \delta, q_0, F)$, de forma que
+
+		\begin{enumerate}
+			\item $Q$ é um conjunto finito estados,
+			\item $\Sigma$ é um alfabeto finito,
+			\item $\delta : Q \times \Sigma_\epsilon \rightarrow \mathcal{P}(Q)$ é a função de transição,
+			\item $q_0 \in Q$ é o estado inicial, e
+			\item $F \subseteq Q$ é o conjunto de estados de aceitação.
+		\end{enumerate}
+	\end{frame}
+	
+	\begin{frame}{Autômato Finito Não-Determinístico}
+	Qual linguagem este AFN reconhece?
+		\begin{center}
+			\includegraphics[height=2.5cm]{images/afn01.png}
+		\end{center}
+	\end{frame}	
+	
+	\begin{frame}{Autômato Finito Não-Determinístico}
+		\begin{center}
+			\includegraphics[height=6cm]{images/naoDeterminismo.png}
+		\end{center}
+	\end{frame}
+	
+	\begin{frame}{Autômato Finito Não-Determinístico}
+		\begin{columns}
+			\column{.4\textwidth}  		
+		  		\begin{center}
+		    		\includegraphics[width=1.3\textwidth]{images/afn01.png}
+		  		\end{center}
+			\column{.6\textwidth}
+				\begin{center}
+					\includegraphics[height=6cm]{images/computacaoAfn.png}
+				\end{center}
+		\end{columns}
+	\end{frame}
+	
+	\begin{frame}{Lista de Exercícios 02}
+		\begin{block}{Livro}
+			SIPSER, M. {\bf Introdução à Teoria da Computação}, 2a Edição, Editora Thomson Learning, 2011. \color{blue}{\bf Código Bib.: [004 SIP/int]}.
+		\end{block}		 
+		\begin{block}{Exercícios}
+			\begin{itemize}
+				\item 1.4 (a, d, g);
+				\item 1.7 (a, d, g);
+				\item 1.15;
+				\item 1.31.
+			\end{itemize}
+		\end{block}
+	\end{frame}
+	
+	\begin{frame}
+		\titlepage
+	\end{frame}
+	
+\end{document}
