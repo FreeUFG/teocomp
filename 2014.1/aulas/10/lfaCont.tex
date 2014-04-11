@@ -140,6 +140,76 @@
 		\end{block}
 	\end{frame}
 	
+	\subsection{Expressões Regulares}
+	\begin{frame}{Expressões Regulares}
+		Digamos que $R$ é uma {\bf expressão regular} (ER) se $R$ for:
+
+		\begin{enumerate}
+			\item $a$, para algum $a \in \Sigma$,
+			\item $\epsilon$,
+			\item $\emptyset$,
+			\item $(R_1 \cup R_2)$, em que $R_1$ e $R_2$ são expressões regulares,
+			\item $(R_1 \circ R_2)$, em que $R_1$ e $R_2$ são expressões regulares,
+			\item $(R_1^*)$, em que $R_1$ é uma expressão regular.
+		\end{enumerate}
+	\end{frame}
+	
+	\begin{frame}{Exemplos de ER}
+		\begin{itemize}
+			\item $0^* 1 0^*$
+			\item $\Sigma^* 1 \Sigma^*$
+			\item $\Sigma^* 001 \Sigma^*$
+			\item $1^* (01^+)^*$
+			\item $(\Sigma \Sigma)^*$
+			\item $(0 \cup \epsilon) 1^* = 01^* \cup 1^*$
+			\item $1^* \emptyset = \emptyset$
+			\item $\emptyset^* = \{ \epsilon \}$
+		\end{itemize}
+	\end{frame}
+	
+	\begin{frame}{Expressões Regulares}
+		\begin{block}{Teorema}
+			Uma linguagem é regular se e somente se alguma expressão regular a descreve.
+		\end{block} \pause
+		\begin{block}{Estratégia}
+			Utilizar para realizar a prova um {\bf autômato finito não-determinístico generalizado}.
+		\end{block}
+	\end{frame}	
+	
+	\begin{frame}{Autômato Finito Não-Determinístico Generalizado}
+		Um {\bf autômato finito não-determinístico generalizado} (AFNG) é uma 5-upla $(Q, \Sigma, \delta, q_{inicio}, q_{aceita})$, de forma que
+
+		\begin{enumerate}
+			\item $Q$ é um conjunto finito estados,
+			\item $\Sigma$ é um alfabeto finito,
+			\item $\delta : (Q - \{q_{aceita}\}) \times (Q - \{q_{inicio}\}) \rightarrow R$ é a função de transição,
+			\item $q_{inicio} \in Q$ é o estado inicial, e
+			\item $q_{aceita} \in Q$ é o estado de aceitação.
+		\end{enumerate}
+	\end{frame}
+	
+	\begin{frame}{Autômatos Finitos Não-Determinístico Generalizado}
+		\begin{center}
+			\includegraphics[height=7cm]{images/afng.png}
+		\end{center}
+	\end{frame}	
+	
+	\begin{frame}{Linguagens Não-Regulares}
+		\begin{alertblock}{}
+			\begin{center}
+				Existem linguagens que não são regulares como $A = \{0^n 1^n \mbox{ | } n \geq 0 \}$.
+			\end{center}
+		\end{alertblock} \pause
+		\begin{block}{Lema do Bombeamento}
+			Se $A$ é uma linguagem regular, então existe um número $p$ (o comprimento do bombeamento) tal que, se $s$ é qualquer cadeia de $A$ de comprimento no mínimo $p$, então $s$ pode ser dividida em três partes, $s = xyz$, satisfazendo as seguintes condições:
+			\begin{enumerate}
+				\item para cada $i \geq 0, xy^i z \in A$,
+				\item $|y| > 0$, e
+				\item $|xy| \leq p$.
+			\end{enumerate}
+		\end{block}
+	\end{frame}
+	
 	\begin{frame}{Lista de Exercícios 02}
 		\begin{block}{Livro}
 			SIPSER, M. {\bf Introdução à Teoria da Computação}, 2a Edição, Editora Thomson Learning, 2011. \color{blue}{\bf Código Bib.: [004 SIP/int]}.

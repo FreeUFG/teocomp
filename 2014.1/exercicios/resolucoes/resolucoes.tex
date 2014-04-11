@@ -1,0 +1,56 @@
+\documentclass[12pt,a4paper,oneside]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[portuguese]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+
+\usepackage{xcolor}
+% Definindo novas cores
+\definecolor{verde}{rgb}{0.25,0.5,0.35}
+\definecolor{jpurple}{rgb}{0.5,0,0.35}
+
+\author{\\Universidade Federal de Goiás (UFG) - Campus Jataí\\Bacharelado em Ciência da Computação \\Teoria da Computação \\Prof. Esdras Lins Bispo Jr.}
+\date{}
+
+\title{\sc \huge Resolução de Problemas e Exercícios}
+
+\begin{document}
+
+\maketitle
+
+\section{Livro de Referência}
+	\begin{itemize}
+		\item SIPSER, M. {\bf Introdução à Teoria da Computação}, 2a Edição, Editora Thomson Learning, 2011. \color{blue}{\bf Código Bib.: [004 SIP/int]}.
+	\end{itemize}
+	
+\section{Resoluções}
+
+\begin{itemize}
+
+	\item {\bf Problema 0.10} \\
+	{\color{verde} O erro consiste na realização do passo em que divide cada lado por $(a-b)$. Visto que inicialmente é admitida a equação $a=b$, decorre-se que $a-b=0$. Como não se é permitida a divisão por zero, a demonstração está errada.
+	}
+	
+	\item {\bf Problema 0.11} \\
+	{\color{verde} O erro consiste na admissão da hipótese de indução duas vezes. É incorreto admitir a hipótese de indução para $H_1$ e para $H_2$. A hipótese da indução só pode ser admitida uma vez e com o objetivo de obter o próximo conjunto de $h$ cavalos. Desta forma, esta demonstração por indução perde o seu nexo causal e deixa de ser verdadeira.
+	}
+	
+	\item {\bf Problema 0.12} \\
+	{\color{verde} Vamos admitir por um momento que é possível construir um grafo com 2 ou mais nós que tenha todos os nós de graus diferentes. Se conseguirmos construir tal grafo, a afirmação proposta pela questão é falsa.
+	
+	Seja $G$ um grafo com $n$ nós em que $n \geq 2$. Queremos construir $G$ de forma que todos os seus nós tenham graus diferentes. Como o menor valor possível para o grau de um nó é 0, e o maior valor é $n-1$; para qualquer nó $v$ temos que $0 \leq \delta(v) \leq n-1$ (em que $\delta(v)$ é grau do nó $v$).
+	
+	Ora, como os valores assumidos para graus de nós são inteiros, dizer que $0 \leq \delta(v) \leq n-1$, é dizer que existem apenas $n$ diferentes valores possíveis para os graus dos nós de um grafo. Se for possível construir tal grafo, cada nó terá exatamente o valor do grau entre 0 e $n-1$, sendo valores distintos dois a dois. Necessariamente, teremos dois nós $v_1$ e $v_2$ em que $\delta(v_1) = 0$ e $\delta(v_2) = n-1$. 
+	
+	Entretanto, isto é impossível, pois se $\delta(v_1) = 0$, então todos os outros nós terá, no máximo, grau $n-2$. O mesmo argumento vale para $\delta(v_2) = n-1$. Teríamos, necessariamente, o grau de todos os outros nós com, no mínimo, o valor 1. Como existem apenas $n$ valores diferentes para os graus de um grafo, se não conseguirmos utilizar todos os valores, obrigatoriamente teremos que repetir um valor de grau de um determinado nó.
+	
+	Logo é um absurdo afirmar que é possível construir um grafo com 2 ou mais nós que tenha todos os nós de graus diferentes. Logo todo grafo com 2 ou mais nós tem ao menos dois nós de graus iguais.
+	
+	}
+
+\end{itemize}
+
+\end{document}
