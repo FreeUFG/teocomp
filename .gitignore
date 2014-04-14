@@ -1,17 +1,26 @@
-2014.1/aulas/**/*.aux
-2014.1/aulas/**/*.log
-2014.1/aulas/**/*.nav
-2014.1/aulas/**/*.out
-2014.1/aulas/**/*.snm
-2014.1/aulas/**/*.synctex.gz
-2014.1/aulas/**/*.toc
-2014.1/dicionario/**/*.aux
-2014.1/dicionario/**/*.log
-2014.1/dicionario/**/*.nav
-2014.1/dicionario/**/*.out
-2014.1/dicionario/**/*.snm
-2014.1/dicionario/**/*.synctex.gz
-2014.1/dicionario/**/*.toc
+## Core latex/pdflatex auxiliary files:
+*.aux
+*.lof
+*.log
+*.lot
+*.fls
+*.out
+*.toc
+
+## Intermediate documents:
+*.dvi
+
+## Build tool auxiliary files:
+*.fdb_latexmk
+*.synctex.gz
+*.synctex.gz(busy)
+*.pdfsync
+
+# beamer
+*.nav
+*.snm
+*.vrb
+
 *.db
 */privado/
 toDolist.txt
