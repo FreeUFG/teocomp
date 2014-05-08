@@ -78,6 +78,34 @@ Como é possível construir $M$, então $A \cup B$ é regular. Logo, a classe de
 \end{center}
 
 \begin{flushleft}
+	\begin{tabular}{cl}
+		{\bf Teorema 1.25:} & A classe de linguagens regulares é fechada sob a \\
+		{\bf [Modificado]}	& operação de intersecção.
+	\end{tabular}
+\end{flushleft}
+
+{\bf Prova:} Sejam $A$ e $B$ duas linguagens regulares. A classe de linguagens regulares é fechada sob a operação de intersecção se $A \cap B$ é regular. $A \cap B$ é regular se for possível construir um AFD $M$ que a reconheça (Definição 1.16).
+
+Seja $M_A = ( Q_A, \Sigma, \delta_A, q_A, F_A )$ e $M_B = ( Q_B, \Sigma, \delta_B, q_B, F_B )$ os dois AFDs que reconhecem as linguagens $A$ e $B$, respectivamente (Definição 1.16). Iremos construir o AFD $M = ( Q, \Sigma, \delta, q_0, F )$ a partir de $M_A$ e $M_B$. $M$ pode ser construído como se segue:
+
+\begin{enumerate}
+	\item $Q = Q_A \times Q_B$;
+	\item $\Sigma$ (o mesmo alfabeto para ambas as máquinas);
+	\item $\delta$, a função de transição, é definida da seguinte maneira. Para cada estado $(r_1,r_2) \in Q$ e cada $a \in \Sigma$, faça
+		\begin{center}
+			$\delta( (r_1, r_2), a ) = (\delta(r_1,a), \delta(r_2,a)) $;
+		\end{center}
+	\item $q_0$ é o par $(q_A, q_B)$;
+	\item $F = \{ (r_1, r_2) \mbox{ | } r_1 \in F_A \wedge r_2 \in F_B \}$.
+\end{enumerate}
+
+Como é possível construir $M$, então $A \cap B$ é regular. Logo, a classe de linguagens regulares é fechada sob a operação de intersecção. $\blacksquare$
+
+\begin{center}
+\line(1,0){250}
+\end{center}
+
+\begin{flushleft}
 	\begin{tabular}{ll}
 		{\bf Teorema 1.39:} & Todo autômato finito não-determinístico tem um \\
 							& autômato finito determinístico equivalente.
