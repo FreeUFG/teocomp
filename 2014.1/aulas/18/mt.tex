@@ -1,0 +1,374 @@
+\documentclass[xcolor=dvipsnames,table]{beamer}
+
+\usepackage{latexsym}
+\usepackage [ansinew]{inputenc}
+\usepackage[brazil]{babel}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{stmaryrd}
+\usepackage{fancybox}
+\usepackage{datetime}
+
+\usepackage[T1]{fontenc}
+
+\usepackage{graphicx}
+\usepackage{graphics}
+\usepackage{url}
+\usepackage{algorithmic}
+\usepackage{algorithm}
+\usepackage{acronym}
+\usepackage{array}
+
+\newtheorem{definicao}{Definio}
+\newcommand{\tab}{\hspace*{2em}}
+
+\mode<presentation>
+{
+  \definecolor{colortexto}{RGB}{0,0,0}
+  \setbeamertemplate{background canvas}[vertical shading][ bottom=white!10,top=white!10]
+  \setbeamercolor{normal text}{fg=colortexto} 
+  \usetheme{Warsaw}
+}
+
+\title{Máquina de Turing: Variantes} 
+
+\author{
+  Esdras Lins Bispo Jr. \\ \url{bispojr@ufg.br}
+  } 
+ \institute{
+  Teoria da Computação \\Bacharelado em Ciência da Computação}
+\date{\textbf{21 de maio de 2014} }
+
+\logo{\includegraphics[width=1cm]{images/ufgJataiLogo.png}}
+
+\begin{document}
+
+	\begin{frame}
+		\titlepage
+	\end{frame}
+
+	\AtBeginSection{
+		\begin{frame}{Sumário}%[allowframebreaks]{Sumário}
+    		\tableofcontents[currentsection]
+    		%\tableofcontents[currentsection, hideothersubsections]
+		\end{frame}
+	}
+
+	\begin{frame}{Plano de Aula}
+		\tableofcontents
+		%\tableofcontents[hideallsubsections]
+	\end{frame}
+	
+%------------------------------------------
+	\section{Pensamento}
+	\begin{frame}{Pensamento}
+  		\begin{center}
+    		\includegraphics[width=7cm]{images/pensamento.png}
+  		\end{center}
+	\end{frame}
+	
+	\begin{frame}{Pensamento}
+		\begin{columns}
+			\column{.4\textwidth}  		
+		  		\begin{center}
+		    		\includegraphics[height=.6\textheight]{images/darwin.jpg}
+		  		\end{center}
+			\column{.6\textwidth}  		
+				\begin{block}{Frase}
+					\begin{center}
+						{\large Na história da humanidade (e dos animais também) aqueles que aprenderam a colaborar e improvisar foram os que prevaleceram.}
+					\end{center}
+				\end{block}		  		
+		  		\begin{block}{Quem?}
+		  			\begin{center}
+						{\bf Charles Darwin (1809-1882)} \\ Naturalista britânico.
+					\end{center}
+				\end{block}
+		\end{columns}
+	\end{frame}
+%------------------------------------------
+\section{Avisos}
+	\begin{frame}{Avisos}
+		\begin{block}{Teste 02}
+			Nota já está disponível no Canvas.
+		\end{block}				
+		\begin{exampleblock}{Teste 03}
+			Dia {\bf 28 de maio}!!!
+		\end{exampleblock}
+	\end{frame}
+	
+	\begin{frame}{Notícias do Santa Cruz}
+		\begin{center}
+			\includegraphics[width=\textwidth]{images/santa.png}
+		\end{center}
+	\end{frame}
+	
+	\section{Revisão}
+	\subsection{Outros exemplos de MT}
+	
+	\begin{frame}{Exemplos}
+		\begin{block}{$L(M_3)$}
+		Uma máquina de Turing $M_3$ que decide $C = \{ a^i b^j c^k \mbox{ | } i \times j = k \mbox{ e } i,j,k \geq 1 \}$		
+		\end{block}
+	\end{frame}
+	
+	\begin{frame}{Exemplos}
+	\begin{center}
+			\includegraphics[height=5.5cm]{images/m3.png}
+		\end{center}
+	\end{frame}
+	
+	\begin{frame}{Exemplos}
+		\begin{block}{$L(M_4)$}
+		Uma máquina de Turing $M_3$ que reconhece $E = \{ \# x_1 \# x_2 \# \ldots \# x_l \mbox{ | cada } x_i \in \{ 0,1 \}^* \mbox{ e } x_i \not= x_j \mbox{ para cada } i \not= j \}$		
+		\end{block}
+	\end{frame}
+	
+	\begin{frame}{Exemplos}
+	\begin{center}
+			\includegraphics[height=3.5cm]{images/m4-1.png}
+		\end{center}
+	\end{frame}
+	
+	\begin{frame}{Exemplos}
+	\begin{center}
+			\includegraphics[height=4cm]{images/m4-2.png}
+		\end{center}
+	\end{frame}
+	
+	\subsection{MT Multifita}
+	\begin{frame}[shrink]{MT Multifita}
+		\begin{block}{Definição}
+			Uma {\bf máquina de Turing multifita} é como uma máquina de Turing comum com várias fitas:
+			\begin{itemize}
+				\item cada fita tem sua própria cabeça de leitura e escrita;
+				\item a configuração consiste da cadeia de entrada aparecer sobre a fita 1, e as outras iniciar em branco;
+				\item a função de transição permite ler, escrever e mover as cabeças em algumas ou em todas as fitas simultaneamente
+				\begin{center}
+					$\delta : Q \times \Gamma^k \rightarrow Q \times \Gamma^k \times \{E,D,P\}^k$
+				\end{center}
+				em que $k$ é o número de fitas.
+			\end{itemize}
+		\end{block}
+		\begin{block}{Exemplo}
+			$\delta(q_i, a_1, \ldots, a_k) = (q_j, b_1, \ldots, b_k, E, D, \ldots, E)$
+		\end{block}
+	\end{frame}
+	
+	\begin{frame}{MT Multifita}
+		\begin{block}{Teorema}
+			Toda máquina de Turing multifita tem uma máquina de Turing de uma única fita que lhe é equivalente.
+		\end{block}
+	\end{frame}
+	
+	\begin{frame}{MT Multifita}
+		\begin{center}
+			\includegraphics[height=6cm]{images/fig314.png}
+		\end{center}
+	\end{frame}
+	
+	\begin{frame}{MT Multifita}
+		\begin{center}
+			\includegraphics[height=5cm]{images/teoMt-1.png}
+		\end{center}
+	\end{frame}
+	
+	\begin{frame}{MT Multifita}
+		\begin{center}
+			\includegraphics[height=3.3cm]{images/teoMt-2.png}
+		\end{center}
+	\end{frame}
+	
+	\begin{frame}{MT Multifita}
+		\begin{block}{Teorema}
+			Toda máquina de Turing multifita tem uma máquina de Turing de uma única fita que lhe é equivalente.
+		\end{block}
+		\begin{block}{Corolário}
+			Uma linguagem é Turing-reconhecível se e somente se alguma máquina de Turing multifita a reconhece.
+		\end{block}
+	\end{frame}
+	
+	\begin{frame}{MT Multifita}
+		\begin{center}
+			\includegraphics[height=1.8cm]{images/provaCorolario.png}
+		\end{center}
+	\end{frame}
+	
+	\section{Variantes de uma MT}
+	\subsection{MT Não-Determinística}
+	\begin{frame}{MT Não-Determinística}
+		\begin{block}{Definição}
+			Uma {\bf máquina de Turing não-determinística} é como uma máquina de Turing comum. Porém, a sua função de transição se comporta como se segue
+				\begin{center}
+					$\delta : Q \times \Gamma \rightarrow \mathcal{P}(Q \times \Gamma \times \{E,D\})$.
+				\end{center}
+		\end{block}\pause
+		\begin{block}{Exemplo}
+			$\delta(q_i, a) = \{(q_j, b_1, E); (q_k, b_2, D); (q_l, b_3, E)\}$
+		\end{block}
+	\end{frame}
+	
+	\begin{frame}{MT Não-Determinística}
+		\begin{block}{Teorema}
+			Toda máquina de Turing não-determinística tem uma máquina de Turing determinística que lhe é equivalente.
+		\end{block}
+	\end{frame}
+	
+	\begin{frame}{MT Não-Determinística}
+		\begin{center}
+			\includegraphics[height=5cm]{images/fig317.png}
+		\end{center}
+	\end{frame}
+	
+	\begin{frame}{MT Não-Determinística}
+		Descrição de $D$:		
+		\begin{center}
+			\includegraphics[height=5cm]{images/d.png}
+		\end{center}
+	\end{frame}
+	
+	\begin{frame}{MT Não-Determinística}
+		\begin{block}{Teorema}
+			Toda máquina de Turing não-determinística tem uma máquina de Turing determinística que lhe é equivalente.
+		\end{block}
+		\begin{block}{Corolário}
+			Uma linguagem é Turing-reconhecível se e somente se alguma máquina de Turing não-determinística a reconhece.
+		\end{block}
+	\end{frame}
+	
+	\begin{frame}{MT Não-Determinística}
+		\begin{center}
+			\includegraphics[height=1.3cm]{images/provaCorolarioMTN.png}
+		\end{center}
+	\end{frame}
+	
+	\begin{frame}{MT Não-Determinística}
+		\begin{block}{Teorema}
+			Toda máquina de Turing não-determinística tem uma máquina de Turing determinística que lhe é equivalente.
+		\end{block}
+		\begin{block}{Corolário}
+			Uma linguagem é Turing-reconhecível se e somente se alguma máquina de Turing não-determinística a reconhece.
+		\end{block}
+		\begin{block}{Corolário}
+			Uma linguagem é decidível se e somente se alguma máquina de Turing não-determinística a decide.
+		\end{block}
+	\end{frame}
+	
+	\subsection{Enumeradores}
+	\begin{frame}{Enumeradores}
+		\begin{block}{Definição (informal)}
+			É uma máquina de Turing com uma impressora anexa.
+		\end{block}\pause		
+		\begin{center}
+			\includegraphics[height=5cm]{images/fig320.png}
+		\end{center}
+	\end{frame}
+	
+	\begin{frame}{Enumeradores}
+		\begin{block}{Características}
+			\begin{itemize}
+				\item<1,5> A MT pode utilizar a impressora como dispositivo de saída;
+				\item<2,5> O enumerador $E$ inicia com uma fita de entrada em branco;
+				\item<3,5> A linguagem enumerada por $E$ é a coleção de todas as cadeias que $E$ em algum momento imprime;
+				\item<4,5> $E$ pode imprimir as cadeias da linguagem em qualquer ordem, possivelmente com repetições.
+			\end{itemize}
+		\end{block}
+	\end{frame}
+	
+	\begin{frame}{Enumeradores}
+	\begin{block}{Teorema}
+			Uma linguagem é Turing-reconhecível se e somente se algum enumerador a enumera.
+		\end{block}\pause
+		\begin{center}
+			\includegraphics[height=2cm]{images/provaTeo321-1}\\ \pause
+			\includegraphics[height=2.3cm]{images/provaTeo321-2}
+		\end{center}
+	\end{frame}
+	
+	\begin{frame}{Equivalência com outros modelos}
+		\begin{itemize}
+			\item<1,4> Característica essencial de máquinas de Turing: \\acesso irrestrito à memória;
+			\item<2,4> Todos os modelos com essa característica vêm a ser equivalente em poder, desde que satisfaçam requisitos razoáveis;
+			\item<3,4> Exemplo: qualquer algoritmo escrito em LISP pode ser escrito em Pascal (e vice-versa).
+		\end{itemize} \onslide<4>
+		\begin{block}{Corolário importante}
+			Embora possamos imaginar muitos modelos computacionais diferentes, a classe de algoritmos que eles descrevem permanece a mesma.
+		\end{block}
+	\end{frame}
+	
+	\section{Definição de algoritmo}
+	\begin{frame}{Definição de algoritmo}
+		\begin{columns}
+			\column{.4\textwidth}  		
+		  		\begin{center}
+		    		\includegraphics[height=.5\textheight]{images/hilbert.jpg}
+		  		\end{center}
+			\column{.6\textwidth}  		
+				\begin{block}{Contribuição}
+					\begin{center}
+						{\large Apresentou uma noção do que seria um algoritmo no Congresso Internacional de Matemáticos em Paris, no ano de 1900.}
+					\end{center}
+				\end{block}		  		
+		  		\begin{block}{Quem?}
+		  			\begin{center}
+						{\bf David Hilbert (1862-1943)} \\ Matemático alemão.
+					\end{center}
+				\end{block}
+		\end{columns}
+	\end{frame}
+	
+	\begin{frame}{Polinômio}
+		\begin{block}{Definições}	
+			Um {\bf polinômio} é uma soma de termos. Um {\bf termo} é um produto de variáveis e uma constante chamada de {\bf coeficiente}.
+		\end{block}\pause
+		\begin{block}{Exemplo: Termo}
+			$6 \cdot x \cdot x \cdot y \cdot z \cdot z \cdot z= 6x^2 y z^3$
+		\end{block}\pause
+		\begin{block}{Exemplo: Polinômio}
+			$6x^2 y z^3 + 3x y^2 - 10$
+		\end{block}
+	\end{frame}
+	
+	\begin{frame}{Polinômio}
+		\begin{block}{Definições}	
+			Uma {\bf raiz} de um polinômio é uma atribuição de valores às suas variáveis de modo que o valor do mesmo seja 0. Chamamos de {\bf raiz inteira} aquela em todos os valores atribuídos são valores inteiros.
+		\end{block}\pause
+		\begin{block}{Exemplo: Raiz}
+			O polinômio $6x^3 y z^2 + 3x y^2 -x^3 - 10$ tem uma raiz em $x=5, y=3$ e $z=0$.
+		\end{block}\pause
+		\begin{block}{Exemplo: Raiz Inteira}
+			A raiz do exemplo acima é uma raiz inteira.
+		\end{block}
+	\end{frame}
+	
+	\begin{frame}{Polinômio}
+		\begin{block}{Problema apresentado por Hilbert}
+			É possível conceber um algoritmo que teste se um polinômio tem uma raiz inteira ou não?
+		\end{block} \pause
+		\begin{block}{Expressão utilizado por Hilbert}
+			``Um processo com o qual ela possa ser determinada por um número finito de operações''.
+		\end{block} \pause
+		\begin{alertblock}{Curioso}
+			Não existe algoritmo que execute esta tarefa.
+		\end{alertblock}
+	\end{frame}
+		
+	\begin{frame}{Lista de Exercícios 04}
+		\begin{block}{Livro}
+			SIPSER, M. {\bf Introdução à Teoria da Computação}, 2a Edição, Editora Thomson Learning, 2011. \color{blue}{\bf Código Bib.: [004 SIP/int]}.
+		\end{block}		 
+		\begin{block}{Exercícios}
+			\begin{itemize}
+				\item 3.4;
+				\item 3.6;
+				\item 3.7;
+				\item 3.16.
+			\end{itemize}
+		\end{block}
+	\end{frame}
+	
+	\begin{frame}
+		\titlepage
+	\end{frame}
+	
+\end{document}
