@@ -37,7 +37,7 @@
   } 
  \institute{
   Teoria da Computação \\Bacharelado em Ciência da Computação}
-\date{\textbf{02 de junho de 2014} }
+\date{\textbf{04 de junho de 2014} }
 
 \logo{\includegraphics[width=1cm]{images/ufgJataiLogo.png}}
 
@@ -71,17 +71,17 @@
 		\begin{columns}
 			\column{.4\textwidth}  		
 		  		\begin{center}
-		    		\includegraphics[height=.5\textheight]{images/mencken.jpg}
+		    		\includegraphics[height=.7\textheight]{images/cortella.png}
 		  		\end{center}
 			\column{.6\textwidth}  		
 				\begin{block}{Frase}
 					\begin{center}
-						{\large Para todo problema complexo existe sempre uma solução simples, elegante e completamente errada.}
+						{\large É necessário cuidar da ética para não anestesiarmos a nossa consciência e começarmos a achar que \\tudo é normal.}
 					\end{center}
 				\end{block}		  		
 		  		\begin{block}{Quem?}
 		  			\begin{center}
-						{\bf Henry Mencken (1880-1956)} \\ Jornalista e crítico social americano.
+						{\bf Mário Sérgio Cortella (1954 - ***)} \\Educador e filósofo brasileiro.
 					\end{center}
 				\end{block}
 		\end{columns}
@@ -90,7 +90,7 @@
 \section{Avisos}
 	\begin{frame}{Avisos}			
 		\begin{exampleblock}{Teste 04}
-			Dia {\bf 11 de junho} (Quarta-feira)!!!
+			Dia {\bf 11 de junho} (Próxima quarta-feira)!!!
 		\end{exampleblock}
 	\end{frame}
 	
@@ -100,192 +100,11 @@
 		\end{center}
 	\end{frame}
 	
-	\section{Revisão}
-	\subsection{Variantes de MT (Cont.)}
-	\begin{frame}{Equivalência com outros modelos}
-		\begin{itemize}
-			\item Característica essencial de máquinas de Turing: \\acesso irrestrito à memória;
-			\item Todos os modelos com essa característica vêm a ser equivalente em poder, desde que satisfaçam requisitos razoáveis;
-			\item Exemplo: qualquer algoritmo escrito em LISP pode ser escrito em Pascal (e vice-versa).
-		\end{itemize}
-		\begin{block}{Corolário importante}
-			Embora possamos imaginar muitos modelos computacionais diferentes, a classe de algoritmos que eles descrevem permanece a mesma.
-		\end{block}
-	\end{frame}
-	
-	\section{Definição de algoritmo}
-	\begin{frame}{Definição de algoritmo}
-		\begin{columns}
-			\column{.4\textwidth}  		
-		  		\begin{center}
-		    		\includegraphics[height=.5\textheight]{images/hilbert.jpg}
-		  		\end{center}
-			\column{.6\textwidth}  		
-				\begin{block}{Contribuição}
-					\begin{center}
-						{\large Apresentou uma noção do que seria um algoritmo no Congresso Internacional de Matemáticos em Paris, no ano de 1900.}
-					\end{center}
-				\end{block}		  		
-		  		\begin{block}{Quem?}
-		  			\begin{center}
-						{\bf David Hilbert (1862-1943)} \\ Matemático alemão.
-					\end{center}
-				\end{block}
-		\end{columns}
-	\end{frame}
-	
-	\begin{frame}{Polinômio}
-		\begin{block}{Definições}	
-			Um {\bf polinômio} é uma soma de termos. Um {\bf termo} é um produto de variáveis e uma constante chamada de {\bf coeficiente}.
-		\end{block}
-		\begin{block}{Exemplo: Termo}
-			$6 \cdot x \cdot x \cdot y \cdot z \cdot z \cdot z= 6x^2 y z^3$
-		\end{block}
-		\begin{block}{Exemplo: Polinômio}
-			$6x^2 y z^3 + 3x y^2 - 10$
-		\end{block}
-	\end{frame}
-	
-	\begin{frame}{Polinômio}
-		\begin{block}{Definições}	
-			Uma {\bf raiz} de um polinômio é uma atribuição de valores às suas variáveis de modo que o valor do mesmo seja 0. Chamamos de {\bf raiz inteira} aquela em todos os valores atribuídos são valores inteiros.
-		\end{block}
-		\begin{block}{Exemplo: Raiz}
-			O polinômio $6x^3 y z^2 + 3x y^2 -x^3 - 10$ tem uma raiz em $x=5, y=3$ e $z=0$.
-		\end{block}
-		\begin{block}{Exemplo: Raiz Inteira}
-			A raiz do exemplo acima é uma raiz inteira.
-		\end{block}
-	\end{frame}
-	
-	\begin{frame}{Polinômio}
-		\begin{block}{Problema apresentado por Hilbert}
-			É possível conceber um algoritmo que teste se um polinômio tem uma raiz inteira ou não?
-		\end{block} 
-		\begin{block}{Expressão utilizado por Hilbert}
-			``Um processo com o qual ela possa ser determinada por um número finito de operações''.
-		\end{block} 
-		\begin{alertblock}{Curioso}
-			Não existe algoritmo que execute esta tarefa.
-		\end{alertblock}
-	\end{frame}
-	
-	\begin{frame}{Definição de algoritmo}
-		\begin{columns}
-			\column{.4\textwidth}  		
-		  		\begin{center}
-		    		\includegraphics[height=.6\textheight]{images/yuri.jpg}
-		  		\end{center}
-			\column{.6\textwidth}  		
-				\begin{block}{Contribuição}
-					\begin{center}
-						{\large Mostrou, em 1970, que não existe algoritmo para se testar se um polinômio tem raízes inteiras.}
-					\end{center}
-				\end{block}		  		
-		  		\begin{block}{Quem?}
-		  			\begin{center}
-						{\bf Yuri Matijasevich (1947-)} \\ Cientista da computação e \\matemático russo.
-					\end{center}
-				\end{block}
-		\end{columns}
-	\end{frame}	
-	
-	\begin{frame}{Definição de Algoritmo}
-		\begin{center}
-    		\includegraphics[width=11cm]{images/fig322.png}
-  		\end{center}
-  		\begin{alertblock}{Conclusão}
-  			Existem problemas que são algoritmicamente insolúveis.
-  		\end{alertblock}
-	\end{frame}
-	
-	\begin{frame}{Definição de Algoritmo}
-		\begin{block}{Contexto}
-			$D = \{ p \mbox{ | } p$ é um polinômio com uma raiz inteira$\}$
-		\end{block} 
-		\begin{block}{Problema}
-			O conjunto $D$ é decidível?
-		\end{block}
-		\begin{block}{Resposta}
-			Não é decidível. Mas é Turing-reconhecível.
-		\end{block}
-	\end{frame}
-	
-	\begin{frame}{Definição de Algoritmo}
-		\begin{block}{Problema análogo}
-			$D_1 = \{p \mbox{ | } p$ é um polinômio sobre $x$ com uma raiz inteira$\}$
-		\end{block}
-		\begin{block}{MT $M_1$ que reconhece $D_1$}
-			$M_1$ = ``A entrada é um polinômio $p$ sobre a variável $x$.
-			\begin{enumerate}
-				\item Calcule o valor de $p$ com $x$ substituída sucessivamente pelos valores $0, 1,-1, 2, -2, 3, -3, \ldots$ \\Se em algum ponto o valor do polinômio resulta em $0$, {\it aceite}.
-			\end{enumerate}
-		\end{block}
-		\begin{block}{Considerações}
-			$M_1$ reconhece $D_1$, mas não a decide.
-		\end{block}
-	\end{frame} 
-	
-	\begin{frame}[shrink]{Definição de Algoritmo}
-		\begin{block}{Resultado obtido por Matijasevich}
-			É possível construir um decisor para $D_1$. Mas não para $D$.
-		\end{block} 
-		\begin{block}{Justificativa}
-			É possível obter um limitante para polinômios de uma única variável. Porém, Matijasevich provou ser impossível calcular tais limitantes para polinômios multivariáveis.
-		\end{block}
-		\begin{block}{Limitante para polinômios de uma única variável}
-			\begin{center}
-				$\pm k \dfrac{c_{max}}{c_1}$
-			\end{center}
-			em que 
-			\begin{itemize}
-				\item $k$ é o número de termos do polinômio,
-				\item $c_{max}$ é o coeficiente com maior valor absoluto, e
-				\item $c_1$ é o coeficiente do termo de mais alta ordem.
-			\end{itemize}  
-		\end{block}
-	\end{frame} 
-	
-	\subsection{Terminologia para descrever MTs}
-	\begin{frame}{Terminologia para descrever MTs}
-		\begin{block}{Níveis de descrição}
-			\begin{itemize}
-				\item {\bf Descrição formal}: esmiúça todos os elementos da 7-upla, conforme definição;
-				\item {\bf Descrição de implementação}: descreve a forma pela qual a MT move a sua cabeça e a forma como ela armazena os dados na fita;
-				\item {\bf Descrição de alto nível}: neste nível não precisamos mencionar como a máquina administra a sua fita ou sua cabeça de leitura-escrita.
-			\end{itemize}
-		\end{block}
-	\end{frame}
-	
-	\begin{frame}[shrink]{Exemplo}
-		Seja $A$ a linguagem consistindo em todas as cadeias representando grafos não-direcionados que são conexos. Logo:
-		\begin{center}
-			$A = \{\langle G \rangle | G$ é um grafo não-direcionado conexo$\}$
-		\end{center}		
-		\begin{block}{Descrição de alto nível}
-			$M$ = ``Sobre a entrada $\langle G \rangle$, a codificacão de um grafo $G$:
-			\begin{enumerate}
-				\item Selecione o primeiro nó de $G$ e marque-o.
-				\item Repita o seguinte estágio até que nenhum novo nó seja marcado:
-					\begin{enumerate}
-						\item Para cada nó em $G$, marque-o se ele está ligado por uma aresta a um nó que já está marcado.
-					\end{enumerate}
-				\item Faça uma varredura em todos os nós de $G$ para determinar se eles estão todos marcados. Se eles estão, {\it aceite}; caso contrário, {\it rejeite}''.
-			\end{enumerate}
-		\end{block}
-	\end{frame}
-	
-	\begin{frame}{Exemplo}
-		\begin{block}{Pergunta}
-			Como seria a descrição de $M$ no nível de implementação?
-		\end{block}
-	\end{frame}
-	
-	\section{Complexidade de Tempo}	
+	\section{Revisão}	
 	\begin{frame}{Complexidade}
 		\begin{block}{Por que estudar complexidade?}
 			Um problema pode ser até decidível, mas pode levar uma quantidade de tempo ou memória bastante elevada.
-		\end{block} \pause
+		\end{block} 
 		\begin{block}{Questões do estudo de complexidade}
 			\begin{itemize}
 				\item Quanto tempo[espaço] leva[ocupa] um determinado algoritmo?
@@ -298,7 +117,7 @@
 	\begin{frame}[shrink]{Complexidade de Tempo}
 		\begin{block}{Problema}
 			Seja a linguagem $A = \{ 0^k 1^k$ | $k \geq 0 \}$. Quanto tempo uma máquina de Turing simples precisa para decidir $A$?
-		\end{block} \pause
+		\end{block}
 		\begin{block}{Descrição de uma possível MT simples}
 			$M_1$ = ``Sobre a cadeia de entrada $\omega$:
 			\begin{enumerate}
@@ -319,14 +138,14 @@
 				\item Estrutura de dados: tamanho do vetor, altura da árvore;
 				\item Cadeia: tamanho da cadeia de entrada.
 			\end{itemize}
-		\end{block} \pause
+		\end{block} 
 		\begin{block}{Tipos de Análise}
 			\begin{itemize}
 				\item Análise do pior caso;
 				\item Análise do caso médio;
 				\item Análise do melhor caso.
 			\end{itemize}
-		\end{block} \pause
+		\end{block} 
 		\begin{block}{Utilizaremos aqui...}
 			O tamanho da cadeia de entrada e a análise de pior caso.
 		\end{block}
@@ -368,7 +187,7 @@ Quando $f(n) = O(g(n))$, dizemos que $g(n)$ é um {\bf limitante superior} para $
 						  & = & O(5n^3)\\
 						  & = & O(n^3)
 			\end{eqnarray}
-		\end{block} \pause
+		\end{block} 
 		\begin{exampleblock}{É verdade porque...}
 			Basta admitir $c = 6$, e $n_0 = 10$. Logo
 			\begin{center}
@@ -378,6 +197,7 @@ Quando $f(n) = O(g(n))$, dizemos que $g(n)$ é um {\bf limitante superior} para $
 		\end{exampleblock}
 	\end{frame}
 	
+	\section{Complexidade de Tempo}
 	\begin{frame}{Complexidade de Tempo}
 		\begin{block}{$f_1 (n) = 5n^3 + 2n^2 + 22n + 6$}
 			\begin{eqnarray}
