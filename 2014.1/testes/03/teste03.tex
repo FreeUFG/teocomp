@@ -1,0 +1,80 @@
+\documentclass[12pt,a4paper,oneside]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[portuguese]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{xcolor}
+% Definindo novas cores
+\definecolor{verde}{rgb}{0.25,0.5,0.35}
+
+\author{\\Universidade Federal de Goiás (UFG) - Câmpus Jataí\\Bacharelado em Ciência da Computação \\Teoria da Computação \\Esdras Lins Bispo Jr.}
+
+\date{28 de maio de 2014}
+
+\title{\sc \huge Terceiro Teste}
+
+\begin{document}
+
+\maketitle
+
+{\bf ORIENTAÇÕES PARA A RESOLUÇÃO}
+
+\begin{itemize}
+	\item A avaliação é individual, sem consulta;
+	\item A pontuação máxima desta avaliação é 10,0 (dez) pontos, sendo uma das 06 (seis) componentes que formarão a média final da disciplina: quatro testes, uma prova e exercícios;
+	\item A média final ($MF$) será calculada assim como se segue
+	\begin{eqnarray}
+		MF & = & MIN(10, S) \nonumber \\
+		S & = & (\sum_{i=1}^{4} 0,2.T_i ) + 0,2.P  + 0,1.E \nonumber
+	\end{eqnarray}
+	em que 
+	\begin{itemize}
+		\item $S$ é o somatório da pontuação de todas as avaliações,
+		\item $T_i$ é a pontuação obtida no teste $i$,
+		\item $P$ é a pontuação obtida na prova, e
+		\item $E$ é a pontuação total dos exercícios.
+	\end{itemize}
+	\item O conteúdo exigido desta avaliação compreende o seguinte ponto apresentado no Plano de Ensino da disciplina: (2) Modelo de Computação e (3) Problemas Decidíveis.
+\end{itemize}
+
+\begin{center}
+	\fbox{\large Nome: \hspace{10cm}}
+	\fbox{\large Assinatura: \hspace{9cm}}
+\end{center}
+
+\newpage
+
+\begin{enumerate}
+	
+	\section*{Terceiro Teste}
+	
+	\item (5,0 pt) Uma {\bf máquina de Turing com fita duplamente infinita} é semelhante a uma máquina de Turing comum, mas sua fita é infinita para a esquerda assim como para a direita. A fita é inicialmente preenchida com brancos, exceto a parte que contém a entrada. A computação é definida como de costume, exceto que a cabeça nunca encontra um final da fita à medida que ela move para a esquerda. Mostre que esse tipo de máquina de Turing reconhece a classe de linguagens Turing-reconhecíveis.\\ \\
+	{\color{verde}
+		Dizer que a máquina de Turing com fita duplamente infinita (MTDI) reconhece a classe de linguagens Turing-reconhe\-cíveis, implica dizer que a MTDI é equivalente em poder a uma máquina de Turing. Ao afirmar isto, dizemos que uma linguagem é Turing reconhecível se, e somente se, uma MTDI a reconhece. Podemos dividir esta prova em dois passos:
+		\begin{enumerate}
+			\item {\bf ``Se a linguagem é Turing-reconhecível, então uma MTDI a reconhece'':}	 Seja $A$ uma linguagem Turing-reconhecível. Se uma linguagem é Turing-recohecível, então uma máquina de Turing a reconhece. Podemos construir a máquina de Turing $M$ que reconhece $A$. Para simular $M$ em uma MTDI, basta desprezarmos a parte da fita à esquerda do primeiro símbolo na fita. Assim toda a computação pode ser feita como se a fita só contivesse a parte que restou.
+			\item {\bf ``Se uma MTDI a reconhece a linguagem, então ela é Turing-reconhecível'':} Podemos simular uma MTDI em uma máquina de Turing com duas fitas. A primeira fita simula a parte da fita com a cadeia e com todos os símbolos brancos infinitos à direita. Quando alguma computação necessitar acessar alguma célula que esteja à esquerda do primeiro símbolo, então a computação será realizada nas células da segunda fita. Como a linguagem reconhecida por uma máquina de Turing com duas fitas é Turing-reconhecível, então a linguagem reconhecida pela MTDI é Turing-reconhecível.	
+		\end{enumerate}
+		Como conseguimos provar ambos os passos, podemos afirmar que a MTDI reconhece a classe de linguagens Turing-reconhecíveis $\blacksquare$
+	}
+	
+	\newpage	
+	
+	\item (5,0 pt) Explique porque a descrição abaixo não é uma descrição de uma máquina de Turing legítima.\\
+	$M_{ruim}$ = ``A entrada é um polinômio $p$ sobre as variáveis $x_1, \ldots, x_k$.
+	\begin{enumerate}
+		\item Tente todas as possíveis valorações de $x_1, \ldots, x_k$ para valores
+inteiros.
+		\item Calcule o valor de $p$ sobre todas essas valorações.
+		\item Se alguma dessas valorações torna o valor de $p$ igual a 0, {\it aceite}; caso contrário, {\it rejeite}.''
+	\end{enumerate}
+	{\color{verde}
+	O principal problema na descrição está no passo (b). É impossível calcular o valor de $p$ sobre todas as valorações porque existe uma quantidade infinita de valorações. Logo o passo (c) nunca será executado (principalmente a parte do ``caso contrário, {\it rejeite}'').
+	}
+\end{enumerate}
+
+\end{document}
