@@ -1,0 +1,257 @@
+\documentclass[xcolor=dvipsnames,table]{beamer}
+
+\usepackage{latexsym}
+\usepackage [ansinew]{inputenc}
+\usepackage[brazil]{babel}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{stmaryrd}
+\usepackage{fancybox}
+\usepackage{datetime}
+
+\usepackage[T1]{fontenc}
+
+\usepackage{graphicx}
+\usepackage{graphics}
+\usepackage{url}
+\usepackage{algorithmic}
+\usepackage{algorithm}
+\usepackage{acronym}
+\usepackage{array}
+
+\newtheorem{definicao}{Definio}
+\newcommand{\tab}{\hspace*{2em}}
+
+\mode<presentation>
+{
+  \definecolor{colortexto}{RGB}{0,0,0}
+  \setbeamertemplate{background canvas}[vertical shading][ bottom=white!10,top=white!10]
+  \setbeamercolor{normal text}{fg=colortexto} 
+  \usetheme{Warsaw}
+}
+
+\title{Complexidade de Tempo} 
+
+\author{
+  Esdras Lins Bispo Jr. \\ \url{bispojr@ufg.br}
+  } 
+ \institute{
+  Teoria da Computação \\Bacharelado em Ciência da Computação}
+\date{\textbf{09 de junho de 2014} }
+
+\logo{\includegraphics[width=1cm]{images/ufgJataiLogo.png}}
+
+\begin{document}
+
+	\begin{frame}
+		\titlepage
+	\end{frame}
+
+	\AtBeginSection{
+		\begin{frame}{Sumário}%[allowframebreaks]{Sumário}
+    		\tableofcontents[currentsection]
+    		%\tableofcontents[currentsection, hideothersubsections]
+		\end{frame}
+	}
+
+	\begin{frame}{Plano de Aula}
+		\tableofcontents
+		%\tableofcontents[hideallsubsections]
+	\end{frame}
+	
+%------------------------------------------
+	\section{Pensamento}
+	\begin{frame}{Pensamento}
+  		\begin{center}
+    		\includegraphics[width=7cm]{images/pensamento.png}
+  		\end{center}
+	\end{frame}
+	
+	\begin{frame}{Pensamento}
+		\begin{columns}
+			\column{.4\textwidth}  		
+		  		\begin{center}
+		    		\includegraphics[height=.5\textheight]{images/desconhecido.jpg}
+		  		\end{center}
+			\column{.6\textwidth}  		
+				\begin{block}{Frase}
+					\begin{center}
+						{\large Antes de começar o trabalho de modificar o mundo, dê três voltas dentro de sua casa.}
+					\end{center}
+				\end{block}		  		
+		  		\begin{block}{Quem?}
+		  			\begin{center}
+						{\bf Provérbio Chinês}
+					\end{center}
+				\end{block}
+		\end{columns}
+	\end{frame}
+%------------------------------------------
+\section{Avisos}
+	\begin{frame}{Avisos}			
+		\begin{exampleblock}{Teste 04}
+			Dia {\bf 11 de junho} (Próxima quarta-feira)!!!
+		\end{exampleblock}
+	\end{frame}
+	
+	\begin{frame}{Notícias do Santa Cruz}
+		\begin{center}
+			\includegraphics[width=\textwidth]{images/cacarato.jpg}
+		\end{center}
+	\end{frame}
+	
+	\section{Complexidade de Tempo}
+	\begin{frame}{Complexidade de Tempo}
+		\begin{block}{Definição 7.7}
+			Seja $t: \mathbb{N} \rightarrow \mathbb{R}^+$ uma função. Defina a {\bf classe de complexidade de tempo}, {\bf TIME($t(n)$)}, como sendo a coleção de todas as linguagens que são decidíveis por uma máquina de Turing de tempo $O(t(n))$.
+		\end{block} \pause
+		\begin{block}{Exemplo}
+			\begin{itemize}
+				\item $A = \{ 0^k 1^k$ | $k \geq 0 \}$
+				\item $A \in$ {\bf TIME($n^2$)}, pois \pause
+				\item $M_1$ decide $A$ em tempo $O(n^2)$
+			\end{itemize}
+		\end{block}
+	\end{frame}
+	
+	\begin{frame}{Complexidade de Tempo}
+		\begin{block}{Problema}
+			Existe uma máquina que decide assintoticamente \\a linguagem $A$ mais rapidamente?
+		\end{block} \pause
+		\begin{block}{Com outras palavras...}
+			$A \in$ {\bf TIME($t(n)$)}, para algum $t(n) = o(n^2)$?
+		\end{block}
+	\end{frame}
+	
+	\begin{frame}[shrink]{Complexidade de Tempo}
+		\begin{block}{Descrição de uma outra MT simples}
+			$M_2$ = ``Sobre a cadeia de entrada $\omega$:
+			\begin{enumerate}
+				\item Faça uma varredura na fita e {\it rejeite} se um 0 for encontrado à direita de um 1.
+				\item Repita enquanto alguns 0s e alguns 1s permanecem sobre a fita:
+				\begin{enumerate}
+					\item Faça uma varredura na fita, verificando se o número total de 0s e 1s remanescentes é par ou ímpar. Se for ímpar, {\it rejeite}.
+					\item Faça uma varredura novamente na fita, \\cortando alternadamente um 0 não e outro sim \\(começando com o primeiro 0) \\e então cortando alternadamente um 1 não e outro sim \\(começando com o primeiro 1).
+				\end{enumerate}
+				\item Se nenhum 0 e nenhum 1 permanecer sobre a fita, {\it aceite}. Caso contrário, {\it rejeite}.
+			\end{enumerate}
+		\end{block}
+	\end{frame}
+	
+	\begin{frame}{Complexidade de Tempo}
+		\begin{block}{Problema}
+			Podemos decidir a linguagem $A$ em tempo $O(n)$ \\(também chamado {\bf tempo linear})?
+		\end{block} \pause
+		\begin{exampleblock}{Sim... é possível!}
+			Se utilizarmos uma máquina de Turing com duas fitas!
+		\end{exampleblock}
+	\end{frame}
+	
+	\begin{frame}[shrink]{Complexidade de Tempo}
+		\begin{block}{Descrição de uma outra MT simples}
+			$M_3$ = ``Sobre a cadeia de entrada $\omega$:
+			\begin{enumerate}
+				\item Faça uma varredura na fita e {\it rejeite} se um 0 for encontrado à direita de um 1.
+				\item Faça uma varredura nos 0s sobre a fita 1 até o primeiro 1. \\Ao mesmo tempo, copie os 0s para a fita 2.
+				\item Faça uma varredura nos 1s sobre a fita 1 até o final da entrada. Para cada 1 lido sobre a fita 1, corte um 0 sobre a fita 2. Se todos os 0s estiverem cortados antes que todos os 1s sejam lidos, {\it rejeite}.
+				\item Se todos os 0s tiverem agora sido cortados, {\it aceite}. Se algum 0 permanecer, {\it rejeite}.
+			\end{enumerate}
+		\end{block}
+	\end{frame}
+	
+	\section{Classe P}
+	\begin{frame}{Relacionamentos de Complexidade entre Modelos}
+		\begin{block}{Teorema 7.8}
+			Seja $t(n)$ uma função, em que $t(n) \geq n$. Então toda máquina de Turing multifita de tempo $t(n)$ tem uma máquina de Turing de um única fita equivalente de tempo $O(t(n))$.
+		\end{block} \pause
+		\begin{block}{Teorema 7.11}
+			Seja $t(n)$ uma função, em que $t(n) \geq n$. Então toda máquina de Turing não-determinística de uma única fita de tempo $t(n)$ tem uma máquina de Turing de um única fita equivalente de tempo $2^{O(t(n))}$.	
+		\end{block}
+	\end{frame}
+	
+	\begin{frame}{A Classe P}
+		\begin{block}{Diferenças de complexidade de tempo}
+			\begin{itemize}
+				\item MT simples $x$ MT multi-fita: \\potência quadrática (ou {\it polinomial})
+				\item MT simples $x$ MT não-determinística: \\no máximo {\it exponencial}.
+			\end{itemize} 		
+		\end{block}\pause
+		\begin{block}{Uma outra classificação...}
+			Podemos classificar todas as linguagens decidíveis do mundo em duas classes de algoritmos:
+			\begin{itemize}
+				\item Linguagens que são possíveis de ser decididas em \\{\bf tempo polinomial} (P).
+				\item Linguagens que não são possíveis de ser decididas em tempo polinomial, i.e., em {\bf tempo não-polinomial} (NP).
+			\end{itemize}
+		\end{block}
+	\end{frame}
+	
+	\begin{frame}{A Classe P}
+		\begin{block}{Diferenças entre as taxas de crescimento}
+			{\bf Exemplo:} $n^3$ e $2^n$ \pause
+			\begin{itemize}
+				\item Admita $n = 1000$; \pause
+				\item Logo, $n^3 = 1$ bilhão; \pause
+				\item Mas, $2^n$ é maior que o número de átomos do universo.
+			\end{itemize}
+		\end{block}
+	\end{frame}
+	
+	\begin{frame}{A Classe P}
+		\begin{block}{Definição 7.12}
+			{\bf P} é a classe de linguagens que são decidíveis em tempo polinomial sobre uma máquina de Turing determinística de uma única fita. \\Em outras palavras
+			\begin{center}
+				{\bf P} = $\bigcup\limits_{k}$ {\bf TIME ($n^k$)}.
+			\end{center}
+		\end{block} \pause
+		\begin{block}{{\bf P} é importante porque...} \pause
+			\begin{itemize} 
+				\item {\bf P} é invariante para todos os modelos de computação polinomialmente equivalentes à máquina de Turing determinística de uma única fita; \pause
+				\item {\bf P} corresponde aproximadamente à classe de problemas que são realisticamente solúveis em um computador.
+			\end{itemize}
+		\end{block}
+	\end{frame}
+	
+	\begin{frame}{A Classe P}
+		\begin{block}{Problema do caminho em um grafo}
+			$CAM = \{ \langle G, s, t \rangle \mbox{ | } G$ é um grafo direcionado que tem um caminho direcionado de $s$ para $t \}$.
+		\end{block} \pause
+		\begin{center}
+			\includegraphics[width=8cm]{images/cam.png}
+		\end{center}
+	\end{frame}
+	
+	\begin{frame}{A Classe P}
+		\begin{block}{Teorema 7.14}
+			$CAM \in$ {\bf P}
+		\end{block} \pause
+		\begin{block}{Prova}
+			$M$ = ``Sobre a cadeia de entrada $\langle G, s, t \rangle$ em que $G$ é um grafo direcionado com nós $s$ e $t$:
+			\begin{enumerate}
+				\item Ponha uma marca sobre o nó $s$.
+				\item Repita o seguinte até que nenhum nó adicional seja marcado:
+				\begin{enumerate}
+					\item Faça uma varredura em todas as arestas de $G$. Se uma aresta $(a,b)$ for encontrada indo de um nó marcado $a$ para um nó não marcado $b$, marque o nó $b$.
+				\end{enumerate}
+				\item Se $t$ estiver marcado, {\it aceite}. Caso contrário, {\it rejeite}.
+			\end{enumerate}
+		\end{block}
+	\end{frame}
+	
+	\begin{frame}{Lista de Exercícios 05}
+		\begin{block}{Livro}
+			SIPSER, M. {\bf Introdução à Teoria da Computação}, 2a Edição, Editora Thomson Learning, 2011. \color{blue}{\bf Código Bib.: [004 SIP/int]}.
+		\end{block}		 
+		\begin{block}{Exercícios}
+			\begin{itemize}
+				\item 7.1;
+				\item 7.2;
+				\item 7.6.
+			\end{itemize}
+		\end{block}
+	\end{frame}
+	
+	\begin{frame}
+		\titlepage
+	\end{frame}
+	
+\end{document}
